@@ -7,7 +7,7 @@ import javax.xml.ws.Endpoint;
  */
 public class Provider {
     public static void main(String[] args) {
-        final String address = "http://localhost:8080/ws/soap/hello";
+        final String address = "http://localhost:8080/ws/hello";
         final HelloService helloService = new HelloServiceImpl();
 
         Endpoint.publish(address, helloService);

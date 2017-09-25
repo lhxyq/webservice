@@ -12,17 +12,18 @@ import java.net.URL;
 public class Consumer {
     public static void main(String[] args) {
         try {
-            URL wsdl = new URL("http://localhost:8080/ws/soap/hello?wsdl");
+            URL wsdl = new URL("http://localhost:8080/ws/hello?wsdl");
 
             QName serviceName = new QName("http://provider.lh.com/", "HelloService");
-            QName portName = new QName("http://provider.lh.com/", "8080");
+            QName portName = new QName("http://provider.lh.com/", "helloServicePort");
 
             Service service = Service.create(wsdl, serviceName);
 
             HelloService helloService = service.getPort(portName, HelloService.class);
             String result = helloService.say("刘辉...");
+            int add = helloService.add(1 , 5);
 
-            System.out.println(result);
+            System.out.println(result + "\t" + add);
         } catch (Exception e) {
             e.printStackTrace();
         }

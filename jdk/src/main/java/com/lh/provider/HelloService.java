@@ -8,4 +8,6 @@ import javax.jws.WebService;
 @WebService
 public interface HelloService {
     String say(String name);
+
+    int add(int a, int b);
 }
